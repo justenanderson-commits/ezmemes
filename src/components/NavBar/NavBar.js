@@ -1,9 +1,16 @@
+import './NavBar.scss'
+import { Link } from 'react-router-dom'
+
 const NavBar = () => {
-  return (
+  return ( 
     <div className="nav-bar">
-      NavBar content
+      <Link to="/" className="title">Memes</Link>
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/my-memes">My Memes</Link>
+      </nav>
     </div>
-  );
+   )
 }
  
-export default NavBar;
+export default NavBar

@@ -1,7 +1,7 @@
-import './Footer'
+import './Footer.scss'
 
 const Footer = () => {
-  return <div className="footer">Footer content</div>
+  return <div className="footer">Created by Justen Anderson ⓒ 2023</div>
 }
 
 export default Footer

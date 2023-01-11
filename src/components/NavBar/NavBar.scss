@@ -1,0 +1,25 @@
+.nav-bar {
+  background-color: rgb(50,50,51);
+  color: #bebebe;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 5%;
+  }
+  & .title {
+    padding-left: 5%;
+    font-size: 2em;
+    font-weight: 800;
+  }
+  & a {
+    text-decoration: none;
+    color: #bebebe;
+    margin-right: 10%;
+    white-space: nowrap;
+  }
+}

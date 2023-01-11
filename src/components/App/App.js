@@ -16,7 +16,6 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>App Component 2</h1>
         <NavBar />
         <Main />
         <MyMemes />

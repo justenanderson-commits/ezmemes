@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SavedMeme from '../SavedMeme/SavedMeme'
 
 class MyMemes extends Component {
   constructor() {
@@ -6,7 +7,12 @@ class MyMemes extends Component {
     this.state = ''
   }
   render() {
-    return <div className="my-memes">My Memes Component</div>
+    return (
+      <div className="my-memes">
+        My Memes Component
+        <SavedMeme />
+      </div>
+    )
   }
 }
 

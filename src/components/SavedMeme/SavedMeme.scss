@@ -1,0 +1,15 @@
+.saved-meme-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #bebebe;
+} 
+
+.saved-image {
+ width: 90%;
+ margin: 2%;
+}
+
+button {
+  margin: 0;
+}

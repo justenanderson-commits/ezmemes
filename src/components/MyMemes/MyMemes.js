@@ -12,7 +12,13 @@ class MyMemes extends Component {
   render() {
     return (
       <div className="my-memes">
-        My Memes Component
+        <SavedMeme />
+        <SavedMeme />
+        <SavedMeme />
+        <SavedMeme />
+        <SavedMeme />
+        <SavedMeme />
+        <SavedMeme />
         <SavedMeme />
       </div>
     )

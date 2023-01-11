@@ -7,7 +7,7 @@ const NavBar = () => {
       <Link to="/" className="title">Memes</Link>
       <nav className="nav">
         <Link to="/">Home</Link>
-        <Link to="/saved-memes">Saved Memes</Link>
+        <Link to="/my-memes">My Memes</Link>
       </nav>
     </div>
    )

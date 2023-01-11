@@ -22,7 +22,7 @@ class App extends Component {
       <div className="app">
         <NavBar />
         <Switch>
-          <Route path="/saved-memes">
+          <Route path="/my-memes">
             <MyMemes />
           </Route>
           <Route path="/">

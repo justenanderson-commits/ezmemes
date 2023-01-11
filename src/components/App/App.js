@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import './App.css';
+import './App.css'
 import NavBar from '../NavBar/NavBar'
 import Main from '../Main/Main'
 import MyMemes from '../MyMemes/MyMemes'
 import Footer from '../Footer/Footer'
+import getMemes from '../../apiCalls/apiCalls'
+import dummyData from '../../apiCalls/mock-data'
 
 class App extends Component {
   constructor() {
@@ -11,17 +13,17 @@ class App extends Component {
     this.state = ''
   }
 
-  render () {
+  render() {
     return (
       <div className="app">
-      <h1>App Component 2</h1>
-      <NavBar />
-      <Main />
-      <MyMemes />
-      <Footer />
+        <h1>App Component 2</h1>
+        <NavBar />
+        <Main />
+        <MyMemes />
+        <Footer />
       </div>
     )
   }
 }
 
-export default App;
+export default App

@@ -13,12 +13,15 @@ const allMemes = dummyData.data.children
 class App extends Component {
   constructor() {
     super()
-    this.state = { memes: allMemes} //Using dummyData - Continue to test with fetch during development
+    this.state = {
+      memes: allMemes,
+      savedMemes: [],
+    } //Using dummyData - Continue to test with fetch during development
     // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
   }
 
-   // componentDidMount = async () => {
-    // ADD A CALLBACK FUNCTION IN HERE
+  // componentDidMount = async () => {
+  // ADD A CALLBACK FUNCTION IN HERE
   //   try {
   //     const allMemes = await getMemes()
   //     this.setState({memes: allMemes})
@@ -34,11 +37,21 @@ class App extends Component {
     const randomMeme = {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
-      id: currentMeme.id
+      id: currentMeme.id,
     }
-    console.log("Random Meme: ", randomMeme)
     return randomMeme
   }
+
+  handleSave = (newSavedMeme) => {
+    console.log("New saved Meme: ", newSavedMeme)
+    this.setState({
+      ...this.state,
+      savedMemes: [ ...this.state.savedMemes, newSavedMeme ]
+    })
+    console.log("This state: ", this.state)
+  }
+
+  
 
   render() {
     return (
@@ -50,7 +63,10 @@ class App extends Component {
               <MyMemes />
             </Route>
             <Route path="/">
-              <Main randomMeme={ this.getRandomMeme(this.state.memes) }/>
+              <Main
+                randomMeme={this.getRandomMeme(this.state.memes)}
+                handleSave={this.handleSave}
+              />
             </Route>
           </Switch>
           <Footer />
@@ -61,12 +77,12 @@ class App extends Component {
 }
 
 export default App
-    // getMemes()
-    //   .then(data => {
-    //     // this.setState({ memes: data.data.children})
-    //   })
-    //   .catch(error => {
-    //     console.log('Error message from catch: ', error.message)
-    //     this.setState({ [error]: error.message })
-    //     // console.log('state: ', this.state)
-    //   })
+// getMemes()
+//   .then(data => {
+//     // this.setState({ memes: data.data.children})
+//   })
+//   .catch(error => {
+//     console.log('Error message from catch: ', error.message)
+//     this.setState({ [error]: error.message })
+//     // console.log('state: ', this.state)
+//   })

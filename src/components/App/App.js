@@ -17,6 +17,17 @@ class App extends Component {
     // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
   }
 
+   // componentDidMount = async () => {
+    // ADD A CALLBACK FUNCTION IN HERE
+  //   try {
+  //     const allMemes = await getMemes()
+  //     this.setState({memes: allMemes})
+  //   } catch(error) {
+  //     this.setState({error: error.message})
+  //   }
+  // RETURN CALLBACK FUNCTION
+  // }
+
   getRandomMeme(allMemes) {
     const index = Math.floor(Math.random() * 25)
     const currentMeme = allMemes[index].data
@@ -27,18 +38,6 @@ class App extends Component {
     }
     console.log("Random Meme: ", randomMeme)
     return randomMeme
-  }
-    //  NOTE - Using dummyData 
-  componentDidMount = () => {
-    getMemes()
-      .then(data => {
-        // this.setState({ memes: data.data.children})
-      })
-      .catch(error => {
-        console.log('Error message from catch: ', error.message)
-        this.setState({ [error]: error.message })
-        // console.log('state: ', this.state)
-      })
   }
 
   render() {
@@ -51,7 +50,7 @@ class App extends Component {
               <MyMemes />
             </Route>
             <Route path="/">
-              <Main randomMeme={ this.getRandomMeme(allMemes) }/>
+              <Main randomMeme={ this.getRandomMeme(this.state.memes) }/>
             </Route>
           </Switch>
           <Footer />
@@ -62,3 +61,12 @@ class App extends Component {
 }
 
 export default App
+    // getMemes()
+    //   .then(data => {
+    //     // this.setState({ memes: data.data.children})
+    //   })
+    //   .catch(error => {
+    //     console.log('Error message from catch: ', error.message)
+    //     this.setState({ [error]: error.message })
+    //     // console.log('state: ', this.state)
+    //   })

@@ -48,8 +48,20 @@ class App extends Component {
       ...this.state,
       savedMemes: [ ...this.state.savedMemes, newSavedMeme ]
     })
-    console.log("This state: ", this.state)
   }
+
+  handleDelete = (id) => {
+    const filteredMemes = this.state.savedMemes.filter(meme => id !== meme.id)
+    this.setState({
+      ...this.state,
+      savedMemes: filteredMemes
+    })
+  }
+
+  // 1. write delete function on app and pass to My Memes.
+  // 2. Receive prop in My Memes and pass to MemeCard
+  // 3. Write event listener for delete button 
+
 
   render() {
     return (

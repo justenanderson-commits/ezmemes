@@ -1,11 +1,10 @@
-
-
 const getMemes = () => {
   return fetch('https://www.reddit.com/r/memes.json')
     .then(response => {
       if(!response.ok) {
-        return response.json()
-      }
+        throw new Error("Couldn't reach the server")
+      } 
+      return response.json()
     })
 }
 

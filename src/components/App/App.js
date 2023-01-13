@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = { memes: allMemes} //Using dummyData - Continue to test with fetch during development
-    // this.state = {} //Using dummyData - Continue to test with fetch during development
+    // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
   }
 
   getRandomMeme(allMemes) {
@@ -28,18 +28,18 @@ class App extends Component {
     console.log("Random Meme: ", randomMeme)
     return randomMeme
   }
-    //  NOTE - Using dummyData - Continue to test with fetch during development// NOTE
-  // componentDidMount = () => {
-  //   getMemes()
-  //     .then(data => {
-  //       // this.setState({ memes: data.data.children})
-  //     })
-  //     .catch(error => {
-  //       console.log('Error message from catch: ', error.message)
-  //       this.setState({ [error]: error.message })
-  //       // console.log('state: ', this.state)
-  //     })
-  // }
+    //  NOTE - Using dummyData 
+  componentDidMount = () => {
+    getMemes()
+      .then(data => {
+        // this.setState({ memes: data.data.children})
+      })
+      .catch(error => {
+        console.log('Error message from catch: ', error.message)
+        this.setState({ [error]: error.message })
+        // console.log('state: ', this.state)
+      })
+  }
 
   render() {
     return (

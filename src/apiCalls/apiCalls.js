@@ -1,11 +1,10 @@
-const getMemes = () => {
-  return fetch('https://www.reddit.com/r/memes.json')
-    .then(response => {
-      if(!response.ok) {
-        throw new Error("Couldn't reach the server")
-      } 
-      return response.json()
-    })
+const getMemes = async () => {
+  const url = 'https://www.reddit.com/r/memes.json'
+  const response = await fetch(url)
+  if (!response.ok){
+    throw new Error("Couldn't communicate with server")
+  }
+return response.json()
 }
 
 export default getMemes

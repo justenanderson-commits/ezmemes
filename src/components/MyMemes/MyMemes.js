@@ -3,11 +3,12 @@
 import SavedMeme from '../SavedMeme/SavedMeme'
 import './MyMemes.scss'
 
-const MyMemes = ({ savedMemes }) => {
+const MyMemes = ({ savedMemes, deleteMeme }) => {
   const displaySavedMemes = savedMemes.map((meme) => {
     return <SavedMeme 
     meme={ meme }
     key={ meme.id }
+    deleteMeme={ deleteMeme }
     />
   })
 

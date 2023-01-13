@@ -58,11 +58,6 @@ class App extends Component {
     })
   }
 
-  // 1. write delete function on app and pass to My Memes.
-  // 2. Receive prop in My Memes and pass to MemeCard
-  // 3. Write event listener for delete button 
-
-
   render() {
     return (
       <Router>
@@ -70,7 +65,7 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route path="/my-memes">
-              <MyMemes savedMemes={ this.state.savedMemes } />
+              <MyMemes savedMemes={ this.state.savedMemes } deleteMeme={ this.handleDelete } />
             </Route>
             <Route path="/">
               <Main

@@ -42,9 +42,9 @@ class App extends Component {
     return randomMeme
   }
 
-  handleSave = (newSavedMeme) => {
+  handleSave = async (newSavedMeme) => {
     console.log("New saved Meme: ", newSavedMeme)
-    this.setState({
+    await this.setState({
       ...this.state,
       savedMemes: [ ...this.state.savedMemes, newSavedMeme ]
     })

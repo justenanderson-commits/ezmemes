@@ -51,8 +51,6 @@ class App extends Component {
     console.log("This state: ", this.state)
   }
 
-  
-
   render() {
     return (
       <Router>
@@ -60,7 +58,7 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route path="/my-memes">
-              <MyMemes />
+              <MyMemes savedMemes={ this.state.savedMemes } />
             </Route>
             <Route path="/">
               <Main

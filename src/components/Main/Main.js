@@ -1,10 +1,10 @@
 import MemeCard from '../MemeCard/MemeCard'
 import './Main.scss'
 
-const Main = ({ index, currentMeme, id }) => {
+const Main = ({  }) => {
   return (
     <div className="main">
-      <MemeCard index={index} currentMeme={currentMeme} id={id} />
+      <MemeCard />
       <div className="button-container">
         <button>Save</button>
         <button>Next</button>

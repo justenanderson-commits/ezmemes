@@ -13,10 +13,19 @@ const allMemes = dummyData.data.children
 class App extends Component {
   constructor() {
     super()
-    this.state = allMemes[0] //Using dummyData - Continue to test with fetch during development
+    this.state = { memes: allMemes} //Using dummyData - Continue to test with fetch during development
     // this.state = {} //Using dummyData - Continue to test with fetch during development
   }
 
+  getRandomMeme(allMemes) {
+    let index = Math.floor(Math.random(25) * 10)
+    console.log(index)
+    let currentMeme = allMemes[index].data
+    console.log('CurrentMeme: ', currentMeme)
+    let id = allMemes[index].data.id
+    console.log('ID: ', id)
+    return
+  }
     //  NOTE - Using dummyData - Continue to test with fetch during development// NOTE
   // componentDidMount = () => {
   //   getMemes()
@@ -40,7 +49,7 @@ class App extends Component {
               <MyMemes />
             </Route>
             <Route path="/">
-              <Main />
+              <Main randomMeme={ this.getRandomMeme(allMemes) }/>
             </Route>
           </Switch>
           <Footer />

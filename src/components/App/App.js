@@ -18,13 +18,15 @@ class App extends Component {
   }
 
   getRandomMeme(allMemes) {
-    let index = Math.floor(Math.random(25) * 10)
-    console.log(index)
-    let currentMeme = allMemes[index].data
-    console.log('CurrentMeme: ', currentMeme)
-    let id = allMemes[index].data.id
-    console.log('ID: ', id)
-    return
+    const index = Math.floor(Math.random() * 25)
+    const currentMeme = allMemes[index].data
+    const randomMeme = {
+      title: currentMeme.title,
+      url: currentMeme.url_overridden_by_dest,
+      id: currentMeme.id
+    }
+    console.log("Random Meme: ", randomMeme)
+    return randomMeme
   }
     //  NOTE - Using dummyData - Continue to test with fetch during development// NOTE
   // componentDidMount = () => {

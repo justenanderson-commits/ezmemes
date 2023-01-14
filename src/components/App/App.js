@@ -31,9 +31,11 @@ class App extends Component {
   // RETURN CALLBACK FUNCTION
   // }
 
-  getRandomMeme(allMemes) {
+  getRandomMeme() {
+    console.log('All Memes: ', allMemes)
+    console.log("State meems: ", this.state)
     const index = Math.floor(Math.random() * 25)
-    const currentMeme = allMemes[index].data
+    const currentMeme = this.state.memes[index].data
     const randomMeme = {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
@@ -70,6 +72,7 @@ class App extends Component {
             <Route path="/">
               <Main
                 randomMeme={this.getRandomMeme(this.state.memes)}
+                getRandomMeme={ this.getRandomMeme }
                 handleSave={this.handleSave}
               />
             </Route>

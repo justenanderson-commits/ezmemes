@@ -5,8 +5,9 @@
   grid-template-columns: 4;
   background-color: rgb(38, 38, 38);
   color: #bebebe;
-  height: 50vh;
-  min-height: 75vh;
-  margin: auto;
+  height: fit-content;
+  min-height: 175vh;
+  // margin: auto;
   padding: 25px;
+  margin-bottom: 10px;
 }

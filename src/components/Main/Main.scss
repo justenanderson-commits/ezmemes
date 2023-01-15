@@ -1,14 +1,15 @@
 .main {
+  background-color: rgb(38, 38, 38);
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #bebebe;
-  height: 50vh;
-  min-height: auto;
+  max-height: 150vh;
+  min-height: 85vh;
   margin: auto;
-  padding: 25px;
+  padding: 0%;
   & .meme-img {
-    width: 40vw;
+    width: 35vw;
     margin-bottom: 0%;
   }
 }
@@ -18,6 +19,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  width: 50%;
+  margin: 1% 0%;
 }
 
 button {

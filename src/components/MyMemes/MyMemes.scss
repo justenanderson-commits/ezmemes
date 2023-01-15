@@ -1,12 +1,13 @@
 .my-memes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
   grid-template-columns: 4;
-  background-color: rgb(38, 38, 38);
+  background-color: rgb(30, 30, 30);
   color: #bebebe;
-  height: 50vh;
-  min-height: 75vh;
-  margin: auto;
+  height: fit-content;
+  min-height: 175vh;
+  // margin: auto;
   padding: 25px;
+  margin-bottom: 10px;
 }

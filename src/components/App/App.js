@@ -13,22 +13,52 @@ const allMemes = dummyData.data.children
 class App extends Component {
   constructor() {
     super()
-    this.state = allMemes[0] //Using dummyData - Continue to test with fetch during development
-    // this.state = {} //Using dummyData - Continue to test with fetch during development
+    this.state = {
+      memes: allMemes,
+      savedMemes: [],
+    } //Using dummyData - Continue to test with fetch during development
+    // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
   }
 
-    //  NOTE - Using dummyData - Continue to test with fetch during development// NOTE
-  // componentDidMount = () => {
-  //   getMemes()
-  //     .then(data => {
-  //       // this.setState({ memes: data.data.children})
-  //     })
-  //     .catch(error => {
-  //       console.log('Error message from catch: ', error.message)
-  //       this.setState({ [error]: error.message })
-  //       // console.log('state: ', this.state)
-  //     })
+  // componentDidMount = async () => {
+  // ADD A CALLBACK FUNCTION IN HERE
+  //   try {
+  //     const allMemes = await getMemes()
+  //     this.setState({memes: allMemes})
+  //   } catch(error) {
+  //     this.setState({error: error.message})
+  //   }
+  // RETURN CALLBACK FUNCTION
   // }
+
+  getRandomMeme() {
+    console.log('All Memes: ', allMemes)
+    console.log("State meems: ", this.state)
+    const index = Math.floor(Math.random() * 25)
+    const currentMeme = this.state.memes[index].data
+    const randomMeme = {
+      title: currentMeme.title,
+      url: currentMeme.url_overridden_by_dest,
+      id: currentMeme.id,
+    }
+    return randomMeme
+  }
+
+  handleSave = async (newSavedMeme) => {
+    console.log("New saved Meme: ", newSavedMeme)
+    await this.setState({
+      ...this.state,
+      savedMemes: [ ...this.state.savedMemes, newSavedMeme ]
+    })
+  }
+
+  handleDelete = (id) => {
+    const filteredMemes = this.state.savedMemes.filter(meme => id !== meme.id)
+    this.setState({
+      ...this.state,
+      savedMemes: filteredMemes
+    })
+  }
 
   render() {
     return (
@@ -37,10 +67,14 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route path="/my-memes">
-              <MyMemes />
+              <MyMemes savedMemes={ this.state.savedMemes } deleteMeme={ this.handleDelete } />
             </Route>
             <Route path="/">
-              <Main />
+              <Main
+                randomMeme={this.getRandomMeme(this.state.memes)}
+                getRandomMeme={ this.getRandomMeme }
+                handleSave={this.handleSave}
+              />
             </Route>
           </Switch>
           <Footer />
@@ -51,3 +85,12 @@ class App extends Component {
 }
 
 export default App
+// getMemes()
+//   .then(data => {
+//     // this.setState({ memes: data.data.children})
+//   })
+//   .catch(error => {
+//     console.log('Error message from catch: ', error.message)
+//     this.setState({ [error]: error.message })
+//     // console.log('state: ', this.state)
+//   })

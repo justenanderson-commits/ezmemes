@@ -1,14 +1,14 @@
 describe('EZ Memes app', () => {
-  // it('should show an error if there is a network problem', () => {
-  //   cy.intercept('https://www.reddit.com/r/memes.json', {
-  //     method: 'GET',
-  //     fixture: '',
-  //   })
-  //   cy.visit('http://localhost:3000/')
-  //   cy.get('body').contains(
-  //     "Couldn't communicate with the server. Try again later."
-  //   )
-  // })
+  it('should show an error if there is a network problem', () => {
+    cy.intercept('https://www.reddit.com/r/memes.json', {
+      method: 'GET',
+      fixture: '',
+    })
+    cy.visit('http://localhost:3000/')
+    cy.get('body').contains(
+      "Couldn't communicate with the server. Try again later."
+    )
+  })
 
   beforeEach(() => {
     cy.visit('http://localhost:3000')
@@ -25,6 +25,7 @@ describe('EZ Memes app', () => {
   })
 
   it('displays a meme on page load', () => {
+    cy.url().should('eq', 'http://localhost:3000/')
     cy.get('.meme-img').should('have.attr', 'alt-text', 'Random meme image')
   })
 
@@ -50,6 +51,7 @@ describe('EZ Memes app', () => {
     cy.get('.save-button').click()
     cy.get('.next-button').click()
     cy.get('[data-cy="my-memes"]').click()
+    cy.url().should('eq', 'http://localhost:3000/my-memes')
     cy.get('.my-memes').should('be.visible')
     cy.get(':nth-child(1) > .saved-image').should(
       'be.visible')

@@ -20,7 +20,7 @@ const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
             data-cy="image"
             src={currentMeme.url}
             className="meme-img"
-            alt-text="Random meme image"
+            alt="Random meme image"
             id={currentMeme.id}
           />
         </div>

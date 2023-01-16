@@ -6,6 +6,7 @@ import MyMemes from '../MyMemes/MyMemes'
 import Footer from '../Footer/Footer'
 import getMemes from '../../apiCalls/apiCalls'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import PageNotFound from '../PageNotFound/PageNotFound'
 
 class App extends Component {
   constructor() {
@@ -39,20 +40,22 @@ class App extends Component {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
-      key: Date.now()
+      key: Date.now(),
     }
     this.setState({
       ...this.state,
       currentMeme: randomMeme,
-      error: null
+      error: null,
     })
   }
 
-  handleSave = async (newSavedMeme) => {
-    await this.setState({
-      ...this.state,
-      savedMemes: [...this.state.savedMemes, newSavedMeme],
-    })
+  handleSave = (newSavedMeme) => {
+    if (this.state.memes.includes(newSavedMeme) === false) {
+      this.setState({
+        ...this.state,
+        savedMemes: [...this.state.savedMemes, newSavedMeme],
+      })
+    }
   }
 
   handleDelete = (id) => {
@@ -68,8 +71,11 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
-          { this.state.error && (
-            <h2 className="text-error"> Couldn't communicate with the server. Try again later.</h2>
+          {this.state.error && (
+            <h2 className="text-error">
+              {' '}
+              Couldn't communicate with the server. Try again later.
+            </h2>
           )}
           <Switch>
             <Route path="/my-memes">
@@ -78,13 +84,18 @@ class App extends Component {
                 deleteMeme={this.handleDelete}
               />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Main
                 error={this.state.error}
                 currentMeme={this.state.currentMeme}
                 getRandomMeme={this.getRandomMeme}
                 handleSave={this.handleSave}
               />
+            </Route>
+            <Route path="*">
+            {/* // This is not yet working // */}
+              <PageNotFound /> 
+            {/* // This is not yet working // */}
             </Route>
           </Switch>
           <Footer />

@@ -6,7 +6,7 @@ import MyMemes from '../MyMemes/MyMemes'
 import Footer from '../Footer/Footer'
 import getMemes from '../../apiCalls/apiCalls'
 import dummyData from '../../apiCalls/mock-data'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const allMemes = dummyData.data.children
 
@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       memes: allMemes,
       savedMemes: [],
+      currentMeme: {},
     } //Using dummyData - Continue to test with fetch during development
     // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
   }
@@ -31,32 +32,38 @@ class App extends Component {
   // RETURN CALLBACK FUNCTION
   // }
 
-  getRandomMeme() {
-    console.log('All Memes: ', allMemes)
-    console.log("State meems: ", this.state)
-    const index = Math.floor(Math.random() * 25)
+  componentDidMount() {
+    this.getRandomMeme()
+  }
+
+  getRandomMeme = async () => {
+    const index = Math.floor(Math.random() * this.state.memes.length)
     const currentMeme = this.state.memes[index].data
+    console.log('Current meme: ', currentMeme)
     const randomMeme = {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
     }
-    return randomMeme
+    await this.setState({
+      ...this.state,
+      currentMeme: randomMeme,
+    })
   }
 
   handleSave = async (newSavedMeme) => {
-    console.log("New saved Meme: ", newSavedMeme)
+    console.log('New saved Meme: ', newSavedMeme)
     await this.setState({
       ...this.state,
-      savedMemes: [ ...this.state.savedMemes, newSavedMeme ]
+      savedMemes: [...this.state.savedMemes, newSavedMeme],
     })
   }
 
   handleDelete = (id) => {
-    const filteredMemes = this.state.savedMemes.filter(meme => id !== meme.id)
+    const filteredMemes = this.state.savedMemes.filter((meme) => id !== meme.id)
     this.setState({
       ...this.state,
-      savedMemes: filteredMemes
+      savedMemes: filteredMemes,
     })
   }
 
@@ -67,12 +74,15 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route path="/my-memes">
-              <MyMemes savedMemes={ this.state.savedMemes } deleteMeme={ this.handleDelete } />
+              <MyMemes
+                savedMemes={this.state.savedMemes}
+                deleteMeme={this.handleDelete}
+              />
             </Route>
             <Route path="/">
               <Main
-                randomMeme={this.getRandomMeme(this.state.memes)}
-                getRandomMeme={ this.getRandomMeme }
+                currentMeme={this.state.currentMeme}
+                getRandomMeme={this.getRandomMeme}
                 handleSave={this.handleSave}
               />
             </Route>

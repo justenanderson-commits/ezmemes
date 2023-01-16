@@ -8,15 +8,15 @@ import getMemes from '../../apiCalls/apiCalls'
 import dummyData from '../../apiCalls/mock-data'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-const allMemes = dummyData.data.children
+// const allMemes = dummyData.data.children
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      memes: allMemes,
+      memes: [],
       savedMemes: [],
-      currentMeme: {},
+      currentMeme: {}
     } //Using dummyData - Continue to test with fetch during development
     // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
   }
@@ -32,8 +32,10 @@ class App extends Component {
   // RETURN CALLBACK FUNCTION
   // }
 
-  componentDidMount() {
-    this.getRandomMeme()
+  componentDidMount = async () => {
+    const data = await getMemes()
+    this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}})
+    await this.getRandomMeme()
   }
 
   getRandomMeme = async () => {

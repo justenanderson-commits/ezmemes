@@ -9,6 +9,7 @@
   min-height: 175vh;
   padding: 2%;
   margin-bottom: 1%;
+  width: 100%;
 } 
 
 h2 {
@@ -19,4 +20,12 @@ h2 {
   color: #bebebe;
   margin: 0;
   padding-top: 20%;
+}
+
+@media screen and (max-width: 500px) {
+  .my-memes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding-bottom: 20%;
+  }
 }

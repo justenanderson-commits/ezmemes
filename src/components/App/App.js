@@ -17,20 +17,8 @@ class App extends Component {
       memes: [],
       savedMemes: [],
       currentMeme: {}
-    } //Using dummyData - Continue to test with fetch during development
-    // this.state = { memes: []} //Using dummyData - Continue to test with fetch during development
+    } 
   }
-
-  // componentDidMount = async () => {
-  // ADD A CALLBACK FUNCTION IN HERE
-  //   try {
-  //     const allMemes = await getMemes()
-  //     this.setState({memes: allMemes})
-  //   } catch(error) {
-  //     this.setState({error: error.message})
-  //   }
-  // RETURN CALLBACK FUNCTION
-  // }
 
   componentDidMount = async () => {
     const data = await getMemes()
@@ -38,15 +26,17 @@ class App extends Component {
     this.getRandomMeme()
   }
 
-  getRandomMeme = async () => {
+  getRandomMeme = () => {
     const index = Math.floor(Math.random() * this.state.memes.length)
+    console.log('This state length before: ', this.state.memes.length)
     const currentMeme = this.state.memes[index].data
+    console.log('This state length after: ', this.state.memes.length)
     const randomMeme = {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
     }
-    await this.setState({
+    this.setState({
       ...this.state,
       currentMeme: randomMeme,
     })

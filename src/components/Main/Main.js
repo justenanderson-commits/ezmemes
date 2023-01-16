@@ -3,6 +3,9 @@ import './Main.scss'
 
 const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
   return (
+    <>
+    {!currentMeme && 
+      <h2 className="save-meme-message">Save some memes</h2>}
     <div className="main">
       <div className="button-container">
         <button onClick={() => handleSave(currentMeme)}>Save</button>
@@ -18,6 +21,7 @@ const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
         />
       </div>
     </div>
+    </>
   )
 }
 

@@ -1,9 +1,10 @@
 import SavedMeme from '../SavedMeme/SavedMeme'
 import './MyMemes.scss'
+import PropTypes from 'prop-types'
 
 const MyMemes = ({ savedMemes, deleteMeme }) => {
   const displaySavedMemes = savedMemes.map((meme) => {
-    return <SavedMeme meme={meme} key={meme.id} deleteMeme={deleteMeme} />
+    return <SavedMeme meme={meme} deleteMeme={deleteMeme} key={ meme.id }/>
   })
 
   return (
@@ -16,3 +17,12 @@ const MyMemes = ({ savedMemes, deleteMeme }) => {
 }
 
 export default MyMemes
+
+MyMemes.propTypes = {
+  savedMemes: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
+  })),
+  deleteMeme: PropTypes.func.isRequired
+}

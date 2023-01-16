@@ -1,4 +1,5 @@
 import './Main.scss'
+import PropTypes from 'prop-types'
 
 const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
   return (
@@ -20,7 +21,7 @@ const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
             data-cy="image"
             src={currentMeme.url}
             className="meme-img"
-            alt-text="Random meme image"
+            alt="Random meme image"
             id={currentMeme.id}
           />
         </div>
@@ -30,3 +31,13 @@ const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
 }
 
 export default Main
+
+Main.propTypes = {
+  currentMeme: PropTypes.shape({
+    url: PropTypes.string,
+    id: PropTypes.string,
+    key: PropTypes.number
+  }),
+  getRandomMeme: PropTypes.func.isRequired,
+  handleSave: PropTypes.func.isRequired
+}

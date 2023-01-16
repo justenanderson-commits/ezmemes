@@ -1,14 +1,15 @@
 .my-memes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  grid-gap: 3%;
   grid-template-columns: 4;
   background-color: rgb(30, 30, 30);
   color: #bebebe;
   height: fit-content;
   min-height: 175vh;
-  padding: 25px;
-  margin-bottom: 10px;
+  padding: 2%;
+  margin-bottom: 1%;
+  width: 100%;
 } 
 
 h2 {
@@ -19,4 +20,12 @@ h2 {
   color: #bebebe;
   margin: 0;
   padding-top: 20%;
+}
+
+@media screen and (max-width: 500px) {
+  .my-memes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding-bottom: 20%;
+  }
 }

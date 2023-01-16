@@ -6,6 +6,7 @@ import MyMemes from '../MyMemes/MyMemes'
 import Footer from '../Footer/Footer'
 import getMemes from '../../apiCalls/apiCalls'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import PageNotFound from '../PageNotFound/PageNotFound'
 
 class App extends Component {
   constructor() {
@@ -29,7 +30,6 @@ class App extends Component {
       this.getRandomMeme()
     } catch (error) {
       this.setState({ error: error.message })
-      console.log(error.message)
     }
   }
 
@@ -37,21 +37,24 @@ class App extends Component {
     const index = Math.floor(Math.random() * this.state.memes.length)
     const currentMeme = this.state.memes[index].data
     const randomMeme = {
-      title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
+      key: Date.now(),
     }
     this.setState({
       ...this.state,
       currentMeme: randomMeme,
+      error: null,
     })
   }
 
-  handleSave = async (newSavedMeme) => {
-    await this.setState({
-      ...this.state,
-      savedMemes: [...this.state.savedMemes, newSavedMeme],
-    })
+  handleSave = (newSavedMeme) => {
+    if (this.state.memes.includes(newSavedMeme) === false) {
+      this.setState({
+        ...this.state,
+        savedMemes: [...this.state.savedMemes, newSavedMeme],
+      })
+    }
   }
 
   handleDelete = (id) => {
@@ -67,26 +70,29 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
-          {!this.state.error && (
+          {this.state.error && (
             <h2 className="text-error">
               {' '}
-              Couldn't communicate with the server. Try again later.{' '}
+              Couldn't communicate with the server. Try again later.
             </h2>
           )}
           <Switch>
-            <Route path="/my-memes">
+            <Route exact path="/my-memes">
               <MyMemes
                 savedMemes={this.state.savedMemes}
                 deleteMeme={this.handleDelete}
               />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Main
                 error={this.state.error}
                 currentMeme={this.state.currentMeme}
                 getRandomMeme={this.getRandomMeme}
                 handleSave={this.handleSave}
               />
+            </Route>
+            <Route path="*">
+              <PageNotFound /> 
             </Route>
           </Switch>
           <Footer />

@@ -67,11 +67,8 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
-          {!this.state.error && (
-            <h2 className="text-error">
-              {' '}
-              Couldn't communicate with the server. Try again later.{' '}
-            </h2>
+          { !this.state.error && (
+            <h2 className="text-error"> Couldn't communicate with the server. Try again later.</h2>
           )}
           <Switch>
             <Route path="/my-memes">

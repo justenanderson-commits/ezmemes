@@ -73,4 +73,18 @@ describe('EZ Memes app', () => {
     )
     cy.get(':nth-child(4) > .saved-image').should('not.exist')
   })
+
+  it('should delete saved memes when the delete button is clicked', () => {
+    cy.get('.save-button').click()
+    cy.get('.next-button').click()
+    cy.get('[data-cy="my-memes"]').click()
+    cy.get('.saved-meme-container').should('be.visible')
+    cy.get('.saved-meme-container > button').click()
+    cy.get('.save-meme-message').contains('Save some memes')
+  })
+
+  it('should say "Save Some Memes" if there are no saved memes', () => {
+    cy.visit('http://localhost:3000/my-memes/')
+    cy.get('.save-meme-message').contains('Save some memes')
+  })
 })

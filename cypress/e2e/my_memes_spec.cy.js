@@ -8,6 +8,7 @@ describe('My memes opage of EZ Memes', () => {
   })
 
   it('should say "Save Some Memes" if there are no saved memes', () => {
+    cy.visit('http://localhost:3000/my-memes/')
     cy.get('.save-meme-message').contains('Save some memes')
   })
 

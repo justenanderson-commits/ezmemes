@@ -26,15 +26,14 @@ class App extends Component {
     this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}})
     this.getRandomMeme()
     } catch (error){
+      this.setState({error: "Couldn't communicate with the server. Try again later"})
       console.log(error.message)
     }
   }
 
   getRandomMeme = () => {
     const index = Math.floor(Math.random() * this.state.memes.length)
-    console.log('This state length before: ', this.state.memes.length)
     const currentMeme = this.state.memes[index].data
-    console.log('This state length after: ', this.state.memes.length)
     const randomMeme = {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
@@ -75,6 +74,7 @@ class App extends Component {
             </Route>
             <Route path="/">
               <Main
+                eror={ this.state.error }
                 currentMeme={this.state.currentMeme}
                 getRandomMeme={this.getRandomMeme}
                 handleSave={this.handleSave}

@@ -8,15 +8,7 @@ describe('EZ Memes app', () => {
   //   cy.get('.text--error').contains(
   //     "Couldn't communicate with the server. Try again later."
   //   )
-  // })
-  // beforeEach(() => {
-  //   cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-  //     method: 'GET',
-  //     fixture: '../fixtures/allmovies.json',
-  //   })
-  //   cy.visit('http://localhost:3000')
-  // })
- 
+  // }) 
   beforeEach(() => {
     cy.visit('http://localhost:3000')
     cy.intercept('https://www.reddit.com/r/memes.json', {
@@ -38,6 +30,10 @@ describe('EZ Memes app', () => {
       'src',
       'https://i.redd.it/9sgbkfnagx4a1.jpg'
     )
+  })
+
+  it('displays a footer on page load', () => {
+    cy.get('.footer').contains('Created by Justen Anderson ⓒ 2023')
   })
 
   // it('should show a random meme when the next button is clicked', () => {})

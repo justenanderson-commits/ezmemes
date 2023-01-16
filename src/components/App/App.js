@@ -39,7 +39,6 @@ class App extends Component {
   getRandomMeme = async () => {
     const index = Math.floor(Math.random() * this.state.memes.length)
     const currentMeme = this.state.memes[index].data
-    console.log('Current meme: ', currentMeme)
     const randomMeme = {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
@@ -52,7 +51,6 @@ class App extends Component {
   }
 
   handleSave = async (newSavedMeme) => {
-    console.log('New saved Meme: ', newSavedMeme)
     await this.setState({
       ...this.state,
       savedMemes: [...this.state.savedMemes, newSavedMeme],

@@ -35,7 +35,7 @@ class App extends Component {
   componentDidMount = async () => {
     const data = await getMemes()
     this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}})
-    await this.getRandomMeme()
+    this.getRandomMeme()
   }
 
   getRandomMeme = async () => {

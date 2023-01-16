@@ -1,19 +1,19 @@
 import MemeCard from '../MemeCard/MemeCard'
 import './Main.scss'
 
-const Main = ({ randomMeme, getRandomMeme, handleSave }) => {
+const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
   return (
     <div className="main">
       <div className="button-container">
-        <button onClick={ () => handleSave(randomMeme) }>Save</button>
+        <button onClick={ () => handleSave(currentMeme) }>Save</button>
         <button onClick={ () => getRandomMeme() }>Next</button>
       </div>
       <div className="meme-container">
         <img
-          src={randomMeme.url}
+          src={currentMeme.url}
           className="meme-img"
           alt-text="Random meme image"
-          id={randomMeme.id}
+          id={currentMeme.id}
         />
       </div>
       

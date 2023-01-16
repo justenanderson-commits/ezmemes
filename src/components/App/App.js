@@ -29,7 +29,6 @@ class App extends Component {
       this.getRandomMeme()
     } catch (error) {
       this.setState({ error: error.message })
-      console.log(error.message)
     }
   }
 
@@ -40,10 +39,12 @@ class App extends Component {
       title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
+      key: Date.now()
     }
     this.setState({
       ...this.state,
       currentMeme: randomMeme,
+      error: null
     })
   }
 
@@ -67,7 +68,7 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
-          { !this.state.error && (
+          { this.state.error && (
             <h2 className="text-error"> Couldn't communicate with the server. Try again later.</h2>
           )}
           <Switch>

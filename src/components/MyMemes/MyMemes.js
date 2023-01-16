@@ -3,7 +3,7 @@ import './MyMemes.scss'
 
 const MyMemes = ({ savedMemes, deleteMeme }) => {
   const displaySavedMemes = savedMemes.map((meme) => {
-    return <SavedMeme meme={meme} key={meme.id} deleteMeme={deleteMeme} />
+    return <SavedMeme meme={meme} deleteMeme={deleteMeme} key={ meme.id }/>
   })
 
   return (

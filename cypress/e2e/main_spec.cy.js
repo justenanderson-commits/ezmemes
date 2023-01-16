@@ -1,14 +1,15 @@
 describe('EZ Memes app', () => {
-  // it('should show an error if there is a network problem', () => {
-  //   cy.intercept('https://www.reddit.com/r/memezzz.json', {
-  //     method: 'GET',
-  //     fixture: '',
-  //   })
-  //   cy.visit('http://localhost:3000/')
-  //   cy.get('.text--error').contains(
-  //     "Couldn't communicate with the server. Try again later."
-  //   )
-  // }) 
+  it('should show an error if there is a network problem', () => {
+    cy.intercept('https://www.reddit.com/r/memes.json', {
+      method: 'GET',
+      fixture: '',
+    })
+    cy.visit('http://localhost:3000')
+    cy.get('.text-error').contains(
+      "Couldn't communicate with the server. Try again later."
+    )
+  }) 
+ 
   beforeEach(() => {
     cy.visit('http://localhost:3000')
     cy.intercept('https://www.reddit.com/r/memes.json', {

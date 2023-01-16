@@ -1,10 +1,10 @@
 import MemeCard from '../MemeCard/MemeCard'
 import './Main.scss'
 
-const Main = ({ error, currentMeme, getRandomMeme, handleSave }) => {
+const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
   return (
     <>
-     {!error && <h4 className="text--error">Couldn't communicate with the server. Try again later.</h4>}
+    <div className="main">
       <div className="button-container">
         <button onClick={() => handleSave(currentMeme)}>Save</button>
         <button onClick={() => getRandomMeme()}>Next</button>
@@ -18,8 +18,8 @@ const Main = ({ error, currentMeme, getRandomMeme, handleSave }) => {
           id={currentMeme.id}
         />
       </div>
+    </div>
     </>
-
   )
 }
 

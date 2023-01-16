@@ -8,8 +8,6 @@ import getMemes from '../../apiCalls/apiCalls'
 import dummyData from '../../apiCalls/mock-data'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-// const allMemes = dummyData.data.children
-
 class App extends Component {
   constructor() {
     super()
@@ -23,10 +21,10 @@ class App extends Component {
   componentDidMount = async () => {
     try {
     const data = await getMemes()
-    this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}})
+    this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}, error: ''})
     this.getRandomMeme()
     } catch (error){
-      this.setState({error: "Couldn't communicate with the server. Try again later"})
+      this.setState({error: error.message})
       console.log(error.message)
     }
   }
@@ -65,6 +63,8 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
+              { !this.state.error && <h2 className="text-error"> Couldn't communicate with the server. Try again later. </h2> }
+              {/* This fails sometimes and passes sometimes. After spending HOURS troubleshooting, I'm guessing it's just Cypress being flaky. */}
           <Switch>
             <Route path="/my-memes">
               <MyMemes
@@ -74,7 +74,7 @@ class App extends Component {
             </Route>
             <Route path="/">
               <Main
-                eror={ this.state.error }
+                error={ this.state.error }
                 currentMeme={this.state.currentMeme}
                 getRandomMeme={this.getRandomMeme}
                 handleSave={this.handleSave}
@@ -89,12 +89,3 @@ class App extends Component {
 }
 
 export default App
-// getMemes()
-//   .then(data => {
-//     // this.setState({ memes: data.data.children})
-//   })
-//   .catch(error => {
-//     console.log('Error message from catch: ', error.message)
-//     this.setState({ [error]: error.message })
-//     // console.log('state: ', this.state)
-//   })

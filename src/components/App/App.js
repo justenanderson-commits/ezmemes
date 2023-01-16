@@ -37,7 +37,6 @@ class App extends Component {
     const index = Math.floor(Math.random() * this.state.memes.length)
     const currentMeme = this.state.memes[index].data
     const randomMeme = {
-      title: currentMeme.title,
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
       key: Date.now(),

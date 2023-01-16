@@ -34,9 +34,9 @@ export default Main
 
 Main.propTypes = {
   currentMeme: PropTypes.shape({
-    title: PropTypes.string,
     url: PropTypes.string,
-    id: PropTypes.string
+    id: PropTypes.string,
+    key: PropTypes.number
   }),
   getRandomMeme: PropTypes.func.isRequired,
   handleSave: PropTypes.func.isRequired

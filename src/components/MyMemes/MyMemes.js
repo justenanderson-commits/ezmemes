@@ -20,9 +20,9 @@ export default MyMemes
 
 MyMemes.propTypes = {
   savedMemes: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    url: PropTypes.string,
-    id: PropTypes.string
+    key: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
   })),
   deleteMeme: PropTypes.func.isRequired
 }

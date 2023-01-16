@@ -21,9 +21,13 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    try {
     const data = await getMemes()
     this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}})
     this.getRandomMeme()
+    } catch (error){
+      console.log(error.message)
+    }
   }
 
   getRandomMeme = () => {
@@ -36,7 +40,7 @@ class App extends Component {
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
     }
-    this.setState({
+      this.setState({
       ...this.state,
       currentMeme: randomMeme,
     })

@@ -5,7 +5,6 @@ import Main from '../Main/Main'
 import MyMemes from '../MyMemes/MyMemes'
 import Footer from '../Footer/Footer'
 import getMemes from '../../apiCalls/apiCalls'
-import dummyData from '../../apiCalls/mock-data'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -14,17 +13,22 @@ class App extends Component {
     this.state = {
       memes: [],
       savedMemes: [],
-      currentMeme: {}
-    } 
+      currentMeme: {},
+    }
   }
 
   componentDidMount = async () => {
     try {
-    const data = await getMemes()
-    this.setState({ memes: data.data.children, savedMemes: [], currentMeme: {}, error: ''})
-    this.getRandomMeme()
-    } catch (error){
-      this.setState({error: error.message})
+      const data = await getMemes()
+      this.setState({
+        memes: data.data.children,
+        savedMemes: [],
+        currentMeme: {},
+        error: '',
+      })
+      this.getRandomMeme()
+    } catch (error) {
+      this.setState({ error: error.message })
       console.log(error.message)
     }
   }
@@ -37,7 +41,7 @@ class App extends Component {
       url: currentMeme.url_overridden_by_dest,
       id: currentMeme.id,
     }
-      this.setState({
+    this.setState({
       ...this.state,
       currentMeme: randomMeme,
     })
@@ -63,8 +67,12 @@ class App extends Component {
       <Router>
         <div className="app">
           <NavBar />
-              { !this.state.error && <h2 className="text-error"> Couldn't communicate with the server. Try again later. </h2> }
-              {/* This fails sometimes and passes sometimes. After spending HOURS troubleshooting, I'm guessing it's just Cypress being flaky. */}
+          {!this.state.error && (
+            <h2 className="text-error">
+              {' '}
+              Couldn't communicate with the server. Try again later.{' '}
+            </h2>
+          )}
           <Switch>
             <Route path="/my-memes">
               <MyMemes
@@ -74,7 +82,7 @@ class App extends Component {
             </Route>
             <Route path="/">
               <Main
-                error={ this.state.error }
+                error={this.state.error}
                 currentMeme={this.state.currentMeme}
                 getRandomMeme={this.getRandomMeme}
                 handleSave={this.handleSave}

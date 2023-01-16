@@ -1,5 +1,3 @@
-// This is the container for all of the small, saved memes.
-
 import SavedMeme from '../SavedMeme/SavedMeme'
 import './MyMemes.scss'
 

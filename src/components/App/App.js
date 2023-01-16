@@ -78,7 +78,7 @@ class App extends Component {
             </h2>
           )}
           <Switch>
-            <Route path="/my-memes">
+            <Route exact path="/my-memes">
               <MyMemes
                 savedMemes={this.state.savedMemes}
                 deleteMeme={this.handleDelete}
@@ -93,9 +93,7 @@ class App extends Component {
               />
             </Route>
             <Route path="*">
-            {/* // This is not yet working // */}
               <PageNotFound /> 
-            {/* // This is not yet working // */}
             </Route>
           </Switch>
           <Footer />

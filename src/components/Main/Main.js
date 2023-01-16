@@ -6,8 +6,8 @@ const Main = ({ currentMeme, getRandomMeme, handleSave }) => {
     <>
     <div className="main">
       <div className="button-container">
-        <button onClick={() => handleSave(currentMeme)}>Save</button>
-        <button onClick={() => getRandomMeme()}>Next</button>
+        <button className="save-button" onClick={() => handleSave(currentMeme)}>Save</button>
+        <button className="next-button" onClick={() => getRandomMeme()}>Next</button>
       </div>
       <div className="meme-container">
         <img

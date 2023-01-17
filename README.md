@@ -1,10 +1,9 @@
-Notes: 
--[] Currently using dummy data. Need to convert JSON from fetch into JS. npm body-parse?
--[] The small, saved meme cards may need to have a button to pop up (modal) to show the full-size image.
 # Ez Memes Solo Project
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This is the repo for [EZ Memes](https://github.com/justenanderson-commits/ezmemes), an app to chill and laugh for a few minutes.
+
+https://user-images.githubusercontent.com/104015966/212783948-65e4d9a1-604b-44e7-9ea8-99aa673c8d82.mp4
 
 ### Setup
 1. Clone the repo

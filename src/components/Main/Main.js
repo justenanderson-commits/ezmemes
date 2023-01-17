@@ -36,8 +36,8 @@ Main.propTypes = {
   currentMeme: PropTypes.shape({
     url: PropTypes.string,
     id: PropTypes.string,
-    key: PropTypes.number
+    key: PropTypes.number,
   }),
   getRandomMeme: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired
+  handleSave: PropTypes.func.isRequired,
 }

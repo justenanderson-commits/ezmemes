@@ -92,7 +92,7 @@ class App extends Component {
               />
             </Route>
             <Route path="*">
-              <PageNotFound /> 
+              <PageNotFound />
             </Route>
           </Switch>
           <Footer />

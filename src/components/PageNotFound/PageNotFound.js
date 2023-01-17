@@ -1,13 +1,13 @@
 import './PageNotFound.scss'
 
 const PageNotFound = () => {
-  console.log("Page not found")
   return (
-      <div className="page-not-found">
-        Hmmmm, that's not a valid page.
-        <br/>
-        Click Home or My Memes to keep meming.
-      </div>
+    <div className="page-not-found">
+      <h3>
+        Hmmmm, that's not a valid page. Click <a href="/">Home</a> or{' '}
+        <a href="/my-memes">My Memes</a> to keep meming.
+      </h3>
+    </div>
   )
 }
 

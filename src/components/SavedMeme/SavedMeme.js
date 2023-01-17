@@ -13,10 +13,10 @@ const SavedMeme = ({ meme, deleteMeme }) => {
 export default SavedMeme
 
 SavedMeme.propType = {
-    meme: PropTypes.shape({
+  meme: PropTypes.shape({
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
   }),
-    deleteMeme: PropTypes.func.isRequired
+  deleteMeme: PropTypes.func.isRequired,
 }

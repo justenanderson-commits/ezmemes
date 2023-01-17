@@ -27,10 +27,10 @@ class App extends Component {
         currentMeme: {},
         error: '',
       })
+      this.getRandomMeme()
     } catch (error) {
       this.setState({ error: error.message })
     }
-    this.getRandomMeme()
   }
 
   getRandomMeme = () => {

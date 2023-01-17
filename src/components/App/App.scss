@@ -8,9 +8,14 @@
 }
 
 button {
-  color: white;
-  background-color: black;
+  width: 10%;
+  font-size: 1.3em;
+  font-weight: 800;
+  height: 6vh;
+  color: black;
+  background-color: white;
   border: none;
+  border-radius: 50%;
 }
 
 button:hover {

@@ -5,9 +5,6 @@ This is the repo for [EZ Memes](https://github.com/justenanderson-commits/ezmeme
 
 https://user-images.githubusercontent.com/104015966/212783948-65e4d9a1-604b-44e7-9ea8-99aa673c8d82.mp4
 
-### Setup
-
-
 ## Abstract:
 This application allows users to browse through a collection of memes provided by the Reddit API. A random meme is generated each time the home page loads. Users can then save those memes to their own collection (assuming only 1 user at this point in development). 
 
@@ -62,6 +59,8 @@ For accessability I chose large, basic font and neutral, high-contrast colors. 1
 - Slack
 - NPM Prop-Types
 - Vercel
+- Netlify
+- Lighthouse
 
 ## Wins and Challenges
 ###Wins

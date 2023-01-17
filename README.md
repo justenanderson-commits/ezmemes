@@ -1,43 +1,17 @@
-# Ez Memes Solo Project
+# EZ Memes Solo Project
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This is the repo for [EZ Memes](https://github.com/justenanderson-commits/ezmemes), an app to chill and laugh for a few minutes.
+This is the repo for [EZ Memes](https://github.com/justenanderson-commits/ezmemes), an app to chill and laugh for a few minutes...then get back to work!
 
 https://user-images.githubusercontent.com/104015966/212783948-65e4d9a1-604b-44e7-9ea8-99aa673c8d82.mp4
 
 ### Setup
-1. Clone the repo
-   ```sh
-   git@github.com:justenanderson-commits/stretch-dogs-api.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Run the server
-   ```sh
-   npm run dev
-   ```
-4. Run Postgres through Docker
-   ```sh
-   docker compose up
-   ```
-5. Run your migration
-   ```sh
-   npm run migrate
-   ```
-6. Seed your database
-   ```sh
-   npm run seed
-   ```
+
 
 ## Abstract:
 This application allows users to browse through a collection of memes provided by the Reddit API. A random meme is generated each time the home page loads. Users can then save those memes to their own collection (assuming only 1 user at this point in development). 
 
 Link to [deployed app](https://ezmemes.vercel.app/)
-
-ADD GIF HERE --------------------------------------
-
 
 ## Installation Instructions:
 1. Go to [this repo](https://github.com/justenanderson-commits/ezmemes) on Github
@@ -46,7 +20,7 @@ ADD GIF HERE --------------------------------------
 4. Copy the SSH url provided by GitHub
 5. In the terminal, navigate to the new project repository
 6. Type git clone and paste the URL
-7. Run `cd rancid-tomatillos`
+7. Run `cd ezmemes`
 8. Run `npm install`. Note: Do not run `npm audit fix --force`. This will update to the latest version of packages, which are not wanted. 
 9. Run `npm start` to start the program. (`Ctrl + C` will stop it.)
 10. In a browser window, navigate to `http://localhost:3000/`.
@@ -91,12 +65,14 @@ For accessability I chose large, basic font and neutral, high-contrast colors. 1
 
 ## Wins and Challenges
 ###Wins
+- I definitely laughed a few times at the random memes that Reddit provides.
 
+- I was able to complete the MVP despite some significant personal, non-coding challenges.  
 
 ###Challenges
-- Cypress was quirky, at best and difficult at worst. It was laggy, crashed a few times, and tests failed intermittently. We found that restarting Cypress would clear failing tests and allow everything to pass. Like Cypress just needed to reset for everything to work.
+- Cypress was quirky at best, and downright flaky at worst. It was laggy, crashed a few times, and tests failed intermittently. I had to restart Cypress to get tests to pass. Like Cypress just needed to reset for everything to work.
 
-- Testing this application was very challenging. Because the home page displays a random meme, it's impossible to consistently test for that specific meme. Hence, some of the testing is set up to ensure that an image is loaded and visible, but doesn't test for that specific image.
+- Testing this application was very challenging because the home page displays a random meme, it's impossible to consistently test for that specific meme. Hence, some of the testing is set up to ensure that an image is loaded and visible, but doesn't test for that specific image.
 
  - It is possible to add duplicate memes to the My Memes page, but all will be deleted (because they have the same ID) if the delete button is clicked.
 

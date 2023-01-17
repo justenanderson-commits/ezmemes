@@ -63,12 +63,12 @@ For accessability I chose large, basic font and neutral, high-contrast colors. 1
 - Lighthouse
 
 ## Wins and Challenges
-###Wins
+### Wins
 - I definitely laughed a few times at the random memes that Reddit provides.
 
 - I was able to complete the MVP despite some significant personal, non-coding challenges.  
 
-###Challenges
+### Challenges
 - Cypress was quirky at best, and downright flaky at worst. It was laggy, crashed a few times, and tests failed intermittently. I had to restart Cypress to get tests to pass. Like Cypress just needed to reset for everything to work.
 
 - Testing this application was very challenging because the home page displays a random meme, it's impossible to consistently test for that specific meme. Hence, some of the testing is set up to ensure that an image is loaded and visible, but doesn't test for that specific image.

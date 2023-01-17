@@ -8,16 +8,20 @@
 }
 
 button {
-  width: 10%;
+  width: 30%;
   font-size: 1.3em;
   font-weight: 800;
   height: 6vh;
   color: black;
   background-color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 5%;
+  margin-bottom: 10%;
 }
 
 button:hover {
   cursor: pointer;
+  color: white;
+  background-color: rgb(66, 65, 65);
+  transition: 0.2s;
 }

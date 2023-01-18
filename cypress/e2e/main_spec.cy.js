@@ -26,7 +26,7 @@ describe('EZ Memes app', () => {
 
   it('displays a meme on page load', () => {
     cy.url().should('eq', 'http://localhost:3000/')
-    cy.get('.meme-img').should('have.attr', 'alt-text', 'Random meme image')
+    cy.get('.meme-img').should('be.visible')
   })
 
   it('displays a footer on page load', () => {
@@ -35,7 +35,7 @@ describe('EZ Memes app', () => {
 
   it('should show a random meme when the next button is clicked', () => {
     cy.get('.next-button').click()
-    cy.get('.meme-img').should('have.attr', 'alt-text', 'Random meme image')
+    cy.get('.meme-img').should('have.attr', 'alt', 'Random meme image')
     cy.get('.meme-img').should(
       'have.attr',
       'src',
@@ -74,11 +74,12 @@ describe('EZ Memes app', () => {
     cy.get('[data-cy="my-memes"]').click()
     cy.get('.saved-meme-container').should('be.visible')
     cy.get('.saved-meme-container > button').click()
-    cy.get('.save-meme-message').contains('Save some memes')
+    cy.get('.save-meme-message').contains('You haven\'t saved any memes. Go save some!')
   })
 
-  it('should say "Save Some Memes" if there are no saved memes', () => {
+  it('should say "You haven\'t saved any memes. Go save some!" if there are no saved memes and display a meme about not having memes', () => {
     cy.visit('http://localhost:3000/my-memes/')
-    cy.get('.save-meme-message').contains('Save some memes')
+    cy.get('.save-meme-message').contains('You haven\'t saved any memes. Go save some!')
+    cy.get('.no-meme-image').should('be.visible')
   })
 })

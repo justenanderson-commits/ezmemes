@@ -3,10 +3,6 @@
   background-color: rgb(30, 30, 30);
 }
 
-@media screen and (min-width: 500px) {
-  
-}
-
 button {
   width: 30%;
   font-size: 1.3em;
@@ -24,4 +20,8 @@ button:hover {
   color: white;
   background-color: rgb(66, 65, 65);
   transition: 0.2s;
+}
+
+* {
+  border: 1px solid black;
 }

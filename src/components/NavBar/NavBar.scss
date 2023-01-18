@@ -5,23 +5,63 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  & nav {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-right: 5%;
+  width: 100%; 
+}
+
+.nav-bar > .title {
+  margin-left: 5%;
+  font-size: 3.5vw;
+  font-weight: 800;
+}
+
+.nav-bar nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-right: 5%;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #bebebe;
+  margin-right: 10%;
+  white-space: nowrap;
+  font-size: 2vw;
+}
+
+
+@media screen and (max-width: 450px) {
+  .nav-bar {
+    height: 12vh;
+    flex-direction: column;
+    justify-content: center;
+    // width: 80vw;
+    margin: 0;
+  } 
+
+  .nav-bar > .title {
+    font-size: 9vw;
+    margin-bottom: 1vh;
   }
-  & .title {
-    padding-left: 5%;
-    font-size: 3em;
-    font-weight: 800;
+  
+  .nav-bar a {
+    font-size: 5vw;
+    font-weight: 400;
   }
-  & a {
-    text-decoration: none;
-    color: #bebebe;
-    margin-right: 10%;
-    white-space: nowrap;
-    font-size: 1.8em;
+}
+
+@media screen and (min-width: 451px) and (max-width: 950px) {
+  .meme-img {
+    width: 75vw;
+  }
+
+  .nav-bar > .title {
+    font-size: 7vw;
+    margin-bottom: 1vh;
+  }
+  
+  .nav-bar a {
+    font-size: 3.5vw;
+    font-weight: 400;
   }
 }

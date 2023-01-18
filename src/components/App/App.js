@@ -18,19 +18,31 @@ class App extends Component {
     }
   }
 
-  componentDidMount = async () => {
-    try {
-      const data = await getMemes()
-      this.setState({
-        memes: data.data.children,
-        savedMemes: [],
-        currentMeme: {},
-        error: '',
+  // componentDidMount = async () => {
+  //   try {
+  //     const data = await getMemes()
+  //     this.setState({
+  //       memes: data.data.children,
+  //       savedMemes: [],
+  //       currentMeme: {},
+  //       error: '',
+  //     })
+  //     this.getRandomMeme()
+  //   } catch (error) {
+  //     this.setState({ error: error.message })
+  //   }
+  // }
+  componentDidMount = () => {
+    getMemes()
+      .then(data => {
+        console.log("Data: ", data)
+        this.setState({ ...this.state, error: '', memes: data.data.children})
+        console.log('State: ', this.state)
+        this.getRandomMeme()
       })
-      this.getRandomMeme()
-    } catch (error) {
-      this.setState({ error: error.message })
-    }
+      .catch(error => {
+        this.setState({ error: error.message})
+      })
   }
 
   getRandomMeme = () => {
@@ -46,6 +58,7 @@ class App extends Component {
       currentMeme: randomMeme,
       error: null,
     })
+    console.log('Current Meme: ', this.state.currentMeme)
   }
 
   handleSave = (newSavedMeme) => {

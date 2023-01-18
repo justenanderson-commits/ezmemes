@@ -9,21 +9,44 @@
   width: 100%;
   margin: auto;
   padding: 0%;
-  & .meme-img {
-    width: 35vw;
-    margin-bottom: 0%;
-  }
 }
+
+.meme-img {
+    width: 40vw;
+    padding-bottom: 10vh;
+  }
 
 .button-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  width: 50%;
+  width: 50vw;
   margin: 1% 0%;
 }
 
 button {
   margin: 30%;
+}
+
+@media screen and (max-width: 450px) {
+  .main {
+    padding: 0;
+    margin: 0;
+  }
+
+  .button-container {
+    margin: 5% 0%;
+    width: 75vw;
+  }
+
+  .meme-img {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 950px) {
+  .meme-img {
+    width: 75vw;
+  }
 }

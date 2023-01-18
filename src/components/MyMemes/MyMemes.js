@@ -10,7 +10,16 @@ const MyMemes = ({ savedMemes, deleteMeme }) => {
   return (
     <>
       {!savedMemes.length && (
-        <h2 className="save-meme-message">Save some memes</h2>
+        <>
+          <p className="save-meme-message">
+            You haven't saved any memes. Go save some!
+          </p>
+          <img
+            src="https://i.imgflip.com/vqees.jpg"
+            alt="If memes didn't exist, would there still be philosophers who are raptors?"
+            className="no-meme-image"
+          ></img>
+        </>
       )}
       <div className="my-memes">{displaySavedMemes}</div>
     </>

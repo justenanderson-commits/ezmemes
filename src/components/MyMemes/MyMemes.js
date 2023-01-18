@@ -12,7 +12,7 @@ const MyMemes = ({ savedMemes, deleteMeme }) => {
       {!savedMemes.length && (
         <>
           <p className="save-meme-message">
-            You haven't saved any memes. Go <a href="/"> Home </a> to save some!
+            You haven't saved any memes. Go save some!
           </p>
           <img
             src="https://i.imgflip.com/vqees.jpg"

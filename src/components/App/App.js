@@ -3,7 +3,7 @@ import './App.scss'
 import NavBar from '../NavBar/NavBar'
 import Main from '../Main/Main'
 import MyMemes from '../MyMemes/MyMemes'
-// import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer'
 import getMemes from '../../apiCalls/apiCalls'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PageNotFound from '../PageNotFound/PageNotFound'
@@ -38,6 +38,7 @@ class App extends Component {
         console.log("Data: ", data)
         this.setState({ ...this.state, error: '', memes: data.data.children})
         console.log('State: ', this.state)
+        this.getRandomMeme()
       })
       .catch(error => {
         this.setState({ error: error.message})
@@ -107,7 +108,7 @@ class App extends Component {
               <PageNotFound />
             </Route>
           </Switch>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </Router>
     )

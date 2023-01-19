@@ -35,9 +35,7 @@ class App extends Component {
   componentDidMount = () => {
     getMemes()
       .then(data => {
-        console.log("Data: ", data)
         this.setState({ ...this.state, error: '', memes: data.data.children})
-        console.log('State: ', this.state)
         this.getRandomMeme()
       })
       .catch(error => {

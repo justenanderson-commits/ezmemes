@@ -2,7 +2,7 @@
 //   const url = 'https://www.reddit.com/r/memes.json'
 //   const response = await fetch(url)
 //   if (!response.ok) {
-//     throw new Error("Couldn't communicate with server")
+//     throw new Error("Couldn't communicate with the server. Try again later.")
 //   }
 //   return response.json()
 // }
